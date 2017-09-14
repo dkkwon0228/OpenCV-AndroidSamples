@@ -1,0 +1,45 @@
+apply plugin: 'com.android.model.library'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle-experimental:0.9.3'
+    }
+}
+
+model {
+    android {
+        compileSdkVersion = 25
+        buildToolsVersion = "25.0.0"
+
+        defaultConfig.with {
+            minSdkVersion.apiLevel = 10
+            targetSdkVersion.apiLevel = 25
+            versionCode = 2480
+            versionName = "2.4.8"
+        }
+    }
+
+    // Configures source set directory.
+    android.sources {
+        main {
+            java {
+                source {
+                    srcDir 'src'
+                }
+            }
+            res {
+                source {
+                    srcDir 'res'
+                }
+            }
+            aidl {
+                source {
+                    srcDir 'src'
+                }
+            }
+        }
+    }
+}
